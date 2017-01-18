@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+#lvl{
+  margin-left:22px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  font-family: Arial;
+  font-weight: bold;
+}
+#level {
+}
+#enemy {
+  margin:10px 20px;
+  background: black;
+  width: 50px;
+  height: 50px;
+  border: solid 5px;
+  border-radius: 20px;
+  border-color: orange;
+}
+#healthLineBorder{
+  margin-left: 18px;
+  width: 60px;
+  height: 20px;
+  border: solid 1px red;
+}
+#health{
+  color: green;
+  display: block;
+  margin-left: 20px;
+  font-size: 40px;
+  font-family: Arial;
+  font-weight: bold;
+}
+#healthLine{
+  width: 100 %;
+  height: 20px;
+  background-color: red;
+}
+
+</style>
+    <meta charset="UTF-8">
+</head>
+<body>
+<p id="lvl"> level <span id="level">1</span></p>
+<img id="enemy" alt="enemy" src="">
+<span id="health"></span>
+<div id="healthLineBorder">
+  <div id="healthLine"></div>
+</div>
+</body>
+<script>
+var damage = 10;
+var levelToWin = 4;
+document.getElementById('enemy').src = "1.png";
+document.getElementById('health').innerHTML = 100;
+var coefLevel = 100;
+
+enemy.onclick = function(){
+  var healthValue = +document.getElementById('health').innerHTML;
+  var levelValue = +document.getElementById('level').innerHTML;
+  if (healthValue >0){
+    document.getElementById('health').innerHTML = healthValue - damage;
+    document.getElementById('healthLine').style.width = (healthValue - damage) / levelValue + "%";
+  } else{
+    var levelValue = levelValue + 1;
+    healthValue = levelValue * coefLevel;
+    level.innerHTML = levelValue;
+    health.innerHTML = healthValue;
+    document.getElementById('enemy').src = levelValue + ".png";
+    document.getElementById('healthLine').style.width = healthValue / levelValue + "%";
+    if (levelValue == levelToWin){document.write ("Congrats, you WIN!!!")}
+  }
+  
+}
+</script>
+</html>
